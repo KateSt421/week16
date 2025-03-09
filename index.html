@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Форма регистрации</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="form-container">
+      <h2 class="title">Форма регистрации</h2>
+      <form id="registrationForm">
+        <div class="form-group">
+          <label for="name">Имя:</label>
+          <input
+            type="text"
+            id="name"
+            placeholder="Введите ваше имя"
+            required
+            minlength="2"
+            maxlength="20"
+            pattern="^([A-Za-z-']{2,20}|[А-Яа-я-']{2,20})$"
+          />
+          <span class="error-message" id="nameError"
+            >Имя должно содержать только буквы и пробелы (2-20 символов)</span
+          >
+        </div>
+        <div class="form-group">
+          <label for="email">Электронная почта:</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="Введите вашу электронную почту"
+            required
+          />
+          <span class="error-message" id="emailError"
+            >Введите корректный адрес электронной почты</span
+          >
+        </div>
+        <div class="form-group">
+          <label for="age">Возраст:</label>
+          <input
+            type="number"
+            id="age"
+            placeholder="Введите ваш возраст"
+            required
+            min="1"
+          />
+          <span class="error-message" id="ageError"
+            >Возраст должен быть положительным числом</span
+          >
+        </div>
+        <div class="form-group-gender">
+          <label>Пол:</label>
+          <label
+            ><input type="radio" name="gender" value="male" required />
+            Мужчина</label
+          >
+          <label
+            ><input type="radio" name="gender" value="female" required />
+            Женщина</label
+          >
+        </div>
+        <div class="form-group">
+          <label for="profession">Профессия:</label>
+          <select id="profession" required>
+            <option value="" disabled selected>Выберите профессию</option>
+            <option value="doctor">Врач</option>
+            <option value="programmer">Программист</option>
+            <option value="teacher">Учитель</option>
+            <option value="designer">Дизайнер</option>
+            <option value="engineer">Инженер</option>
+            <option value="seller">Продавец</option>
+            <option value="other">Другое</option>
+          </select>
+          <span class="error-message" id="professionError"
+            >Выберите профессию</span
+          >
+        </div>
+        <div class="form-group">
+          <label for="password">Пароль:</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="Введите пароль"
+            required
+            minlength="8"
+            maxlength="20"
+            pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$"
+          />
+          <span class="error-message" id="passwordError"
+            >Пароль должен содержать минимум 8 символов, включая заглавные
+            буквы, строчные буквы и цифры</span
+          >
+          <img
+            class="toggle-visibility"
+            id="togglePassword"
+            src="assets/icons8-глаз-94.png"
+            alt="глаза"
+          />
+        </div>
+        <div class="form-group">
+          <label
+            ><input type="checkbox" id="consent" required /> Я согласен с
+            обработкой данных</label
+          >
+        </div>
+        <button type="submit" id="submitButton" disabled>Отправить</button>
+      </form>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
